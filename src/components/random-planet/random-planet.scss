@@ -1,0 +1,98 @@
+.random-planet{
+    display: flex;
+    color: #fff;
+    margin-top: 30px;
+    height: 450px;
+    &__image{
+        flex-basis: 40%;
+        border-radius: 50%;
+        img{
+            border-radius: 50%;
+            width: 100%;
+        }
+    }
+    &__description{
+        flex-basis: 60%;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__info{
+        padding-left: 30px;
+        p{
+            padding: 3px 0;
+        }
+    }
+    &__name{
+        padding-bottom: 20px;
+    }
+    &__population{
+        position: relative;
+        &:first-child{
+            &:after{
+                content: '';
+                position: absolute;
+                background-color: #fff;
+                height: 1px;
+                width: 100%;
+                right: 0;
+                bottom: 0;
+                max-width: 0;
+                transition: 1.5s max-width;
+            }
+        }
+        &--loaded{
+            &:first-child{
+                &:after{
+                    max-width: 100%;
+                   
+                }
+            }
+        }
+    }
+}
+
+
+.spinner {
+    margin: 100px auto 0;
+    width: 70px;
+    text-align: center;
+    height: 340px;
+  }
+  
+  .spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }

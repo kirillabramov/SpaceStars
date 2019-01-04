@@ -1,0 +1,66 @@
+a{
+    color: #fff;
+    text-decoration: none;
+    &:hover{
+        color: #fff;
+        text-decoration: none;
+    }
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app{
+    background: url('../../images/bg.jpg');
+    height: 100vh;
+    &__wrapper{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+    &__details{
+        display: flex;
+        margin-top: 50px;
+    }
+    &__logo{
+        position: relative;
+        font-size: 21px;
+        font-weight: 500;
+        color: rgba(255,255,255,.5);
+        font-family: 'Raleway', sans-serif;
+        &:before{
+            content: attr(data-hover);
+            position: absolute;
+            color: #fff;
+            max-width: 0px;
+            top: 0; 
+            left: 0;
+            overflow: hidden;
+            transition: 0.5s max-width;
+        }
+
+        &:hover{
+            color: rgba(255,255,255, .5);
+            &:before{
+                max-width: 100%;
+                transition: 0.5s max-width;
+            }
+    
+        }
+
+    }
+}

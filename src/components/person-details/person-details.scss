@@ -1,0 +1,41 @@
+.person-details{
+    flex-basis: 60%;
+    display: flex;
+    justify-content: flex-end;
+    &__photo{
+        img{
+            width: 200px;
+            border-radius: 50%;
+        }
+    }
+    &__eyecolor{
+        span{
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background-color:red;  
+            border-radius: 50%;
+        }
+    }
+    &__description{
+        flex-basis: 50%;
+        position: relative;
+        color: #fff;
+        box-sizing: border-box;
+        text-align: right;
+        padding-top: 30px;
+        &:before{
+            content: '';
+            height: 100%;
+            width: 1px;
+            background: rgba(255,255,255, .3);
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+    }
+    &__name{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}
