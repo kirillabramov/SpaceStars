@@ -28,12 +28,12 @@ export default class StarService {
 
     async getAllPeople(){
         let res = await this.makeRequest('/people/');
-        return res.results.map(this._transformPlanet);
+        return res.results.map(this._transformPerson);
     }
 
     async getAllPlanets(){
         let res = await this.makeRequest('/planets/');
-        return res.results;
+        return res.results.map(this._transformPlanet);
     }
 
     async getAllStarships(){
@@ -51,7 +51,7 @@ export default class StarService {
         const idRegExp = /\/([0-9]*)\/$/;
         return item.url.match(idRegExp)[1];
     }
-    _transformPlanet(planet){
+    _transformPlanet = (planet) =>{
        return {
             id: this._extractId(planet),
             population: planet.population,
@@ -59,7 +59,7 @@ export default class StarService {
             planetName: planet.name
         }
     }
-    _transformStarship(starship){
+    _transformStarship = (starship) =>{
         return {
              id: this._extractId(starship),
              name: starship.name,
@@ -70,7 +70,7 @@ export default class StarService {
              passengers: starship.passengers
          }
      }
-     _transformPerson(person){
+     _transformPerson = (person) =>{
          return{
              id: this._extractId(person),
              name: person.name,

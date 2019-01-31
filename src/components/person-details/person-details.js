@@ -1,23 +1,79 @@
 import React, { Component } from 'react';
+import StarSerivce from '../../services/star-service';
 
 import './person-details.scss';
 
 
 export default class PersonDetails extends Component{
 
+    starService = new StarSerivce();
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            person: null
+        };
+    }
+
+
+    updatePerson = () => {
+        const { personId } = this.props;
+        if(!personId) {
+            return;
+        }
+        this.starService
+        .getPerson(personId)
+        .then((person) => {
+            this.setState({
+                person
+            });
+        });
+    }
+
+
+    componentDidMount(){
+        this.updatePerson();
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.personId !== prevProps.personId){
+            this.updatePerson();
+        }
+    }
 
 
     render(){
+        if(!this.state.person){
+            return <span className="person-details__warning">Select a person from a list.</span>
+        };
+
+        const { 
+            person: {
+                id,
+                name,
+                height,
+                gender,
+                eyeColor
+            }
+        } = this.state;
+        const eyeColorStyles = {
+                width: '10px',
+                height: '10px',
+                display: 'inline-block',
+                backgroundColor: eyeColor,
+                borderRadius: '50%'
+        }
         return(
             <div className="person-details">
                 <div className="person-details__photo">
-                    <img  src="https://i5.walmartimages.com/asr/217a095f-c2f1-4600-a28a-695f6c9102a5_1.4a0f09b442f3098af4a2d8c371b8fbe9.jpeg" alt="person-photo"/>
+                    <img  src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt="person-photo"/>
                 </div>
                 <div className="person-details__description">
-                    <div className="person-details__name">R2-D2</div>
-                    <p className="person-details__gender">Gender: <span>Male</span></p>
-                    <p className="person-details__height">Height: <span>172</span></p>
-                    <p className="person-details__eyecolor">Eyecolor <span></span></p>
+                    <div className="person-details__name">{name}</div>
+                    <p className="person-details__gender">Gender: <span>{gender}</span></p>
+                    <p className="person-details__height">Height: <span>{height}</span></p>
+                    <p className="person-details__eyecolor">Eyecolor <span style={eyeColorStyles} ></span></p>
                 </div>
             </div>
         );

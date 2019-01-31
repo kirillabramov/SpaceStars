@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StarSerivce from '../../services/star-service';
-
+import Error from '../error/error';
+import Spinner from '../spinner/spinner';
 
 import './random-planet.scss';
 
@@ -11,11 +12,20 @@ export default class RandomPlanet extends Component{
     starService = new StarSerivce();
     constructor(){
         super();
+    }
+    componentDidMount(){
         this.updatePlanet();
+        setInterval(this.updatePlanet, 10000);
+        this.interval = setInterval(this.updatePlanet, 10000);
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.interval);
     }
     state = {
         planet: {},
-        loading: true
+        loading: true,
+        error: false
     }
 
     onPlanetLoaded = (planet) => {
@@ -25,18 +35,25 @@ export default class RandomPlanet extends Component{
         });
     };
 
-    updatePlanet(){
+    onError = (err) => {
+        this.setState({
+            error: true,
+            loading: false
+        });
+    }
+    updatePlanet = () => {
         const id = Math.floor(Math.random()*25) + 3;
         this.starService
         .getPlanet(id)
-        .then(this.onPlanetLoaded);
-    }
+        .then(this.onPlanetLoaded)
+        .catch(this.onError);
+    };
 
 
     render(){
 
-        const { planet, loading } = this.state;
-        const spinner = loading ? <Spinner /> : <PlanetView planet={planet}/>;
+        const { planet, loading, error } = this.state;
+        const spinner = error ? <Error/> : loading ? <Spinner />  : <PlanetView planet={planet}/>;
 
         return(
             <div className="random-planet">
@@ -68,14 +85,4 @@ const PlanetView = ({planet}) => {
             </div>
         </React.Fragment>
     )
-};
-
-const Spinner = () =>{
-    return(
-        <div className="spinner">
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
-        </div>
-    );
 };

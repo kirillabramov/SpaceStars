@@ -8,14 +8,11 @@
             border-radius: 50%;
         }
     }
-    &__eyecolor{
-        span{
-            width: 10px;
-            height: 10px;
-            display: inline-block;
-            background-color:red;  
-            border-radius: 50%;
-        }
+    &__warning{
+        color: #fff;
+
+        text-align: center;
+        width: 100%;
     }
     &__description{
         flex-basis: 50%;
