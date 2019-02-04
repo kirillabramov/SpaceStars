@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StarSerivce from '../../services/star-service';
 
+
 import './person-details.scss';
 
 

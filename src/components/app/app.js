@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import './app.scss';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import ItemList from '../item-list/item-list';
-import PersonDetails from '../person-details/person-details';
-
+import PeoplePage from '../people-page/people-page';
+import StarService from '../../services/star-service';
 
 
 export default class App extends Component{
 
+
+    starService = new StarService();
+
+
     constructor(props){
         super(props);
         this.state = {
-            selectedPerson: null
+
         }
     }
-    onPersonSelected = (id) => {
-        this.setState({ 
-            selectedPerson: id
-        });
-    }
+
     render(){
         return(
             <div className="app">
@@ -31,8 +30,7 @@ export default class App extends Component{
                         </div>
                         <RandomPlanet />    
                         <div className="app__details">
-                            <ItemList onPersonSelected={this.onPersonSelected}/>
-                            <PersonDetails personId={this.state.selectedPerson}  />
+                            <PeoplePage getData={this.starService.getAllPeople}/>
                         </div>
                     </div>
                 </div>

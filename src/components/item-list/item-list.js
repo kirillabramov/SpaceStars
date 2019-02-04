@@ -8,7 +8,7 @@ import './item-list.scss';
 
 export default class ItemList extends Component{
 
-    starService = new StarSerivce();
+    // starService = new StarSerivce();
 
     constructor(props){
         super(props);
@@ -19,8 +19,7 @@ export default class ItemList extends Component{
 
 
     componentDidMount(){
-        this.starService
-        .getAllPeople()
+        this.props.getData()
         .then((peopleList) => {
             this.setState({
                 peopleList
@@ -43,7 +42,6 @@ export default class ItemList extends Component{
         if(!peopleList){
             return <Spinner />;
         }
-        console.log(peopleList);
         return(
             <div className="item-list">
                 <ul className="item-list__list">

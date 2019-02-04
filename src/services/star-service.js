@@ -6,37 +6,37 @@ export default class StarService {
 
 
 
-    async makeRequest(url) {
+     makeRequest = async (url) => {
         let res = await fetch(`${this._apiUrl}${url}`);
         let body = await res.json();
         return body;
     }
 
-    async getPerson(id){
+     getPerson = async (id) => {
         let person = await this.makeRequest(`/people/${id}`)
         return this._transformPerson(person);
     }
 
-    async getPlanet(id){
+     getPlanet = async (id) => {
         let planet = await this.makeRequest(`/planets/${id}`);
         return this._transformPlanet(planet);
     }
-    async getStarship(id){
+     getStarship = async (id) => {
         let starship = await this.makeRequest(`/starships/${id}`);
         return this._transformStarship(starship);
     }
 
-    async getAllPeople(){
+     getAllPeople = async () => {
         let res = await this.makeRequest('/people/');
         return res.results.map(this._transformPerson);
     }
 
-    async getAllPlanets(){
+     getAllPlanets = async () => {
         let res = await this.makeRequest('/planets/');
         return res.results.map(this._transformPlanet);
     }
 
-    async getAllStarships(){
+     getAllStarships = async () => {
         let res = await this.makeRequest('/starships/');
         return res.results.map(this._transformStarship);
     }
