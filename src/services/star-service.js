@@ -2,6 +2,7 @@ export default class StarService {
 
     constructor(){
         this._apiUrl = 'https://swapi.co/api';
+        this._imgUrl = 'https://starwars-visualguide.com/assets/img';
     }
 
 
@@ -15,8 +16,16 @@ export default class StarService {
      getPerson = async (id) => {
         let person = await this.makeRequest(`/people/${id}`)
         return this._transformPerson(person);
-    }
-
+     }
+     getPersonImage = ({id}) => {
+         return `${this._imgUrl}/characters/${id}.jpg`
+     }
+     getPlanetImage = ({id}) => {
+        return `${this._imgUrl}/planets/${id}.jpg`
+     }
+     getStarshipImage = ({id}) => {
+        return `${this._imgUrl}/starships/${id}.jpg`
+     }
      getPlanet = async (id) => {
         let planet = await this.makeRequest(`/planets/${id}`);
         return this._transformPlanet(planet);
@@ -64,7 +73,7 @@ export default class StarService {
              id: this._extractId(starship),
              name: starship.name,
              model: starship.model,
-             costInCredits: starship.costInCredits,
+             costInCredits: starship.cost_in_credits,
              length: starship.length,
              crew: starship.crew,
              passengers: starship.passengers

@@ -13,39 +13,41 @@ export default class ItemList extends Component{
     constructor(props){
         super(props);
         this.state = {
-            peopleList: null
+            itemList: null
         }
     };
 
 
     componentDidMount(){
         this.props.getData()
-        .then((peopleList) => {
+        .then((itemList) => {
             this.setState({
-                peopleList
+                itemList
             });
         });
     }
     renderItems = (arr) => {
-        return arr.slice(0, 5).map(({id, name}) => {
+        return arr.slice(5, 10).map((item) => {
+            const { id } = item;
+            const label = this.props.renderItem(item);
             return(
                 <li className="item-list__item" 
                 key={id}
                 onClick={() => this.props.onPersonSelected(id)}>
-                    {name}
+                    {label}
                 </li>
             )
         });
     };
     render(){
-        const { peopleList } = this.state;
-        if(!peopleList){
+        const { itemList } = this.state;
+        if(!itemList){
             return <Spinner />;
         }
         return(
             <div className="item-list">
                 <ul className="item-list__list">
-                    {this.renderItems(peopleList)}
+                    {this.renderItems(itemList)}
                 </ul>
             </div>
         );

@@ -30,7 +30,10 @@ export default class App extends Component{
                         </div>
                         <RandomPlanet />    
                         <div className="app__details">
-                            <PeoplePage getData={this.starService.getAllPeople}/>
+                                <PeoplePage 
+                                getData={this.starService.getAllPeople}
+                                renderItem={({name, gender}) => `${name} (${gender})`}/>
+
                         </div>
                     </div>
                 </div>

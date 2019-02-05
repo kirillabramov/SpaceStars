@@ -1,4 +1,4 @@
-.person-details{
+.item-details{
     flex-basis: 60%;
     display: flex;
     justify-content: flex-end;
@@ -30,9 +30,30 @@
             top: 0;
             left: 100px;
         }
+
     }
     &__name{
         font-size: 20px;
         margin-bottom: 20px;
+        width: 180px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        right: 0;
+    }
+    &__gender{
+        margin-top: 40px;
+    }
+    &__separator{
+        margin-bottom: 40px;
+    }
+    &__label span{
+        display: inline-block;
+        vertical-align: top;
+        width: 60px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
