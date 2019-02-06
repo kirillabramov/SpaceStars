@@ -65,7 +65,7 @@ export default class StarService {
             id: this._extractId(planet),
             population: planet.population,
             rotationPeriod: planet.rotation_period,
-            planetName: planet.name
+            name: planet.name
         }
     }
     _transformStarship = (starship) =>{

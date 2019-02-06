@@ -4,8 +4,9 @@ import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
 import PeoplePage from '../people-page/people-page';
 import StarService from '../../services/star-service';
-
-
+import { PersonList, PlanetList, StarshipList } from '../star-db/item-lists';
+import { PersonDetails, PlanetDetails, StarshipDetails } from '../star-db/details';
+import PageItem from '../page-item/page-item';
 export default class App extends Component{
 
 
@@ -15,9 +16,17 @@ export default class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-
-        }
+            selectedPerson: 5
+        };
     }
+
+
+    onPersonSelected = (id) => {
+        this.setState({ 
+            selectedPerson: id
+        });
+    }
+    
 
     render(){
         return(
@@ -30,10 +39,15 @@ export default class App extends Component{
                         </div>
                         <RandomPlanet />    
                         <div className="app__details">
-                                <PeoplePage 
-                                getData={this.starService.getAllPeople}
-                                renderItem={({name, gender}) => `${name} (${gender})`}/>
-
+                                <PageItem 
+                                leftItem={<PersonList onPersonSelected={this.onPersonSelected} renderItem={({name, gender}) => `${name} (${gender})`} />} 
+                                rightItem={<PersonDetails />} />    
+                                <PageItem 
+                                leftItem={<PlanetList renderItem={({name}) => `${name}`} />} 
+                                rightItem={<PlanetDetails />} />  
+                                <PageItem 
+                                leftItem={<StarshipList renderItem={({name}) => `${name}`} />} 
+                                rightItem={ <StarshipDetails />} />  
                         </div>
                     </div>
                 </div>
