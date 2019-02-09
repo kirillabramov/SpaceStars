@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import StarSerivce from '../../services/star-service';
-
 
 import './item-details.scss';
 
@@ -21,7 +19,7 @@ export default class ItemDetails extends Component{
 
     render(){
         if(!this.props.item){
-            return <span className="item-details__warning">Select a person from a list.</span>
+            return <span className="item-details__warning">Select item from a list.</span>
         };
 
         const { 

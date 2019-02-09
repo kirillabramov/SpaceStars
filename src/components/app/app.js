@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './app.scss';
 import Header from '../header/header';
 import RandomPlanet from '../random-planet/random-planet';
-import PeoplePage from '../people-page/people-page';
 import StarService from '../../services/star-service';
-import { PersonList, PlanetList, StarshipList } from '../star-db/item-lists';
-import { PersonDetails, PlanetDetails, StarshipDetails } from '../star-db/details';
-import PageItem from '../page-item/page-item';
+import { StarServiceProvider } from '../star-service-context/star-service-context';
+import PeoplePage from '../people-page/people-page';
+import PlanetPage from '../planet-page/planet-page';
+import StarshipPage from '../starship-page/starship-page';
 export default class App extends Component{
 
 
@@ -30,6 +30,7 @@ export default class App extends Component{
 
     render(){
         return(
+            <StarServiceProvider value={this.starService}>
             <div className="app">
                 <div className="app__wrapper">
                     <div className="app__inner">
@@ -39,19 +40,16 @@ export default class App extends Component{
                         </div>
                         <RandomPlanet />    
                         <div className="app__details">
-                                <PageItem 
-                                leftItem={<PersonList onPersonSelected={this.onPersonSelected} renderItem={({name, gender}) => `${name} (${gender})`} />} 
-                                rightItem={<PersonDetails />} />    
-                                <PageItem 
-                                leftItem={<PlanetList renderItem={({name}) => `${name}`} />} 
-                                rightItem={<PlanetDetails />} />  
-                                <PageItem 
-                                leftItem={<StarshipList renderItem={({name}) => `${name}`} />} 
-                                rightItem={ <StarshipDetails />} />  
+                            
+                                <PeoplePage />
+                                <PlanetPage />
+                                <StarshipPage />
+                           
                         </div>
                     </div>
                 </div>
             </div>
+            </StarServiceProvider>
         )
     }
 }

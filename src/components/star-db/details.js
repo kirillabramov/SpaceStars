@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import ItemDetails, { DetailsItem } from '../item-details/item-details';
 import { withDetails } from '../hoc/with-details';
 import StarService from '../../services/star-service';
@@ -21,7 +21,6 @@ const PersonDetails = withDetails(
         <DetailsItem field="eyeColor" label="Eye Color:"/>,
         <DetailsItem field="height" label="Height:"/>
     ],
-    5,
     getPerson,
     getPersonImage
 
@@ -34,7 +33,6 @@ const PlanetDetails = withDetails(
         <DetailsItem field="rotationPeriod" label="Rotation period:"/>
        
     ],
-    5,
     getPlanet,
     getPlanetImage
 
@@ -47,7 +45,6 @@ const StarshipDetails = withDetails(
         <DetailsItem field="passengers" label="Passengers:"/>,
         <DetailsItem field="crew" label="Crew:"/>
     ],
-    5,
     getStarship,
     getStarshipImage
 );
