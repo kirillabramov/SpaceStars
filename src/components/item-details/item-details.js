@@ -5,7 +5,6 @@ import './item-details.scss';
 
 
 
-
 const DetailsItem = ({item, field, label}) => {
     return(
         <p className="item-details__label">{label} <span>{item[field]}</span></p>
@@ -17,7 +16,7 @@ export default class ItemDetails extends Component{
 
     render(){
         if(!this.props.item){
-            return <span className="item-details__warning">Select a person from a list.</span>
+            return <span className="item-details__warning">Select a item from a list.</span>
         };
 
         const { 
@@ -27,7 +26,6 @@ export default class ItemDetails extends Component{
             image
         } = this.props;
         const item = this.props.item;
-
         
         return(
             <div className="item-details">

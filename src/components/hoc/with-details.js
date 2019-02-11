@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-const withDetails = (View, DetailsItem, itemId, getData, getImageUrl) => {
+const withDetails = (View, DetailsItem, getData, getImageUrl) => {
     return class extends Component{
 
         constructor(props){
@@ -15,10 +15,10 @@ const withDetails = (View, DetailsItem, itemId, getData, getImageUrl) => {
         }
 
         updateItem = () => {
-            if(!itemId) {
+            if(!this.props.itemId) {
                 return;
             }
-            getData(itemId)
+            getData(this.props.itemId)
             .then((item) => {
                 this.setState({
                     item,
@@ -41,6 +41,7 @@ const withDetails = (View, DetailsItem, itemId, getData, getImageUrl) => {
         render(){
             return (
             <View 
+                
                 image={this.state.image}
                 item={this.state.item}>
                 {DetailsItem}

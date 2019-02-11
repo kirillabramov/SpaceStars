@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './page-item.scss';
 
 
@@ -11,5 +12,10 @@ const PageItem = ({ leftItem, rightItem }) => {
     );
 };
 
+
+PageItem.propTypes = {
+    leftItem: PropTypes.node,
+    rightItem: PropTypes.node
+};
 
 export default PageItem;

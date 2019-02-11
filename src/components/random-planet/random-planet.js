@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import StarSerivce from '../../services/star-service';
 import Error from '../error/error';
 import Spinner from '../spinner/spinner';
@@ -8,14 +9,23 @@ import './random-planet.scss';
 
 
 export default class RandomPlanet extends Component{
-    
+
+    static defaultProps = {
+        updatedInterval: 10000
+    };
+
+    static propTypes = {
+        updatedInterval: PropTypes.number
+    };
+
     starService = new StarSerivce();
     constructor(){
         super();
     }
     componentDidMount(){
+        const { updatedInterval } = this.props;
         this.updatePlanet();
-        setInterval(this.updatePlanet, 10000);
+        setInterval(this.updatePlanet, updatedInterval);
         this.interval = setInterval(this.updatePlanet, 10000);
     }
 
@@ -36,7 +46,7 @@ export default class RandomPlanet extends Component{
         });
     };
 
-    onError = (err) => {
+    onError = () => {
         this.setState({
             error: true,
             loading: false
@@ -63,9 +73,8 @@ export default class RandomPlanet extends Component{
         );
            
         }
-        
-    
 }
+
 
 const PlanetView = ({planet}) => {
     const {id, population, rotationPeriod, planetName} = planet;
