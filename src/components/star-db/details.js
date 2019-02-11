@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ItemDetails, { DetailsItem } from '../item-details/item-details';
 import { withDetails } from '../hoc/with-details';
 import StarService from '../../services/star-service';

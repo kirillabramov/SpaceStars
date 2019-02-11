@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import StarSerivce from '../../services/star-service';
-
 
 import './item-details.scss';
 
@@ -13,8 +11,6 @@ const DetailsItem = ({item, field, label}) => {
         <p className="item-details__label">{label} <span>{item[field]}</span></p>
     );
 };
-
-
 
 export default class ItemDetails extends Component{
 
