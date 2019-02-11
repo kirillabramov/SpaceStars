@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React from 'react';
-=======
-import React  from 'react';
->>>>>>> b2f66f43a1a2d2408bbd245506a288f0a4a08f9a
 import ItemDetails, { DetailsItem } from '../item-details/item-details';
 import { withDetails } from '../hoc/with-details';
 import StarService from '../../services/star-service';
