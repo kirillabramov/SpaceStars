@@ -41,7 +41,11 @@ const withDetails = (View, DetailsItem, getData, getImageUrl) => {
         render(){
             return (
             <View 
+<<<<<<< HEAD
                 
+=======
+                {...this.props}
+>>>>>>> b2f66f43a1a2d2408bbd245506a288f0a4a08f9a
                 image={this.state.image}
                 item={this.state.item}>
                 {DetailsItem}

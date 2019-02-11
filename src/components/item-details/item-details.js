@@ -16,7 +16,11 @@ export default class ItemDetails extends Component{
 
     render(){
         if(!this.props.item){
+<<<<<<< HEAD
             return <span className="item-details__warning">Select a item from a list.</span>
+=======
+            return <span className="item-details__warning">Select item from a list.</span>
+>>>>>>> b2f66f43a1a2d2408bbd245506a288f0a4a08f9a
         };
 
         const { 
