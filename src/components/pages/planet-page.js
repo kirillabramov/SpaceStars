@@ -1,33 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PlanetList } from '../star-db/item-lists';
-import { PlanetDetails } from '../star-db/details';
-import PageItem from '../page-item/page-item';
+import withRouter from 'react-router-dom/withRouter';
 
 
 
 
-export default class PlanetPage extends Component{
-
-    constructor(props){
-        super(props);
-        this.state = {
-            selectedItem: 5
-        };
-    }
-
-
-    onItemSelected = (id) => {
-        this.setState({ 
-            selectedItem: id
-        });
-    }
-
-    render(){
-        const { selectedItem } = this.state;
+ const PlanetPage = ({ history }) => {
         return(
-            <PageItem 
-            leftItem={<PlanetList onItemSelected={this.onItemSelected} renderItem={({name}) => `${name}`} />} 
-            rightItem={<PlanetDetails  itemId={ selectedItem }/>} />     
+            <PlanetList 
+            onItemSelected={(itemId) => {
+                history.push(itemId);
+            }} 
+            renderItem={({name}) => `${name}`} />
         );
-    }
 }
+
+export default withRouter(PlanetPage);

@@ -8,13 +8,13 @@ const Header = () => {
         <div className="header">
             <ul className="header__list">
                 <li className="header__list-item">
-                    <Link to="/people">People</Link>
+                    <Link to="/people/">People</Link>
                 </li>
                 <li className="header__list-item">
-                    <Link to="/planets">Planets</Link>
+                    <Link to="/planets/">Planets</Link>
                 </li>
                 <li className="header__list-item">
-                    <Link to="/starships">Starships</Link>
+                    <Link to="/starships/">Starships</Link>
                 </li>
             </ul>
         </div>

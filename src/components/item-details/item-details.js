@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Spinner from '../spinner/spinner'
 import './item-details.scss';
 
 
@@ -16,7 +16,7 @@ export default class ItemDetails extends Component{
 
     render(){
         if(!this.props.item){
-            return <span className="item-details__warning">Select a item from a list.</span>
+            return <Spinner />
         };
 
         const { 
