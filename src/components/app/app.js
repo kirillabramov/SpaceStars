@@ -7,7 +7,7 @@ import PlanetPage from '../pages/planet-page';
 import StarshipPage from '../pages/starship-page';
 import StarService from '../../services/star-service';
 import { StarshipDetails, PlanetDetails, PersonDetails } from '../star-db/details';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 export default class App extends Component{
 
 
@@ -29,37 +29,46 @@ export default class App extends Component{
                             </div>
                             <RandomPlanet />
                             <div className="app__details">
-                                <Route 
-                                path="/" 
-                                render={
-                                    () => <h2 className="app--welcome">Welcome to SpaceStars</h2>
-                                } 
-                                exact
-                                />
+                                <Switch>
+                                        <Route 
+                                        path="/" 
+                                        render={
+                                            () => <h2 className="app--welcome">Welcome to SpaceStars</h2>
+                                        } 
+                                        exact
+                                        />
 
-                                <Route path="/people/" exact component={PeoplePage} />
-                                <Route path="/planets" exact component={PlanetPage} />
-                                <Route path="/starships" exact component={StarshipPage} />
+                                        <Route path="/people/" exact component={PeoplePage} />
+                                        <Route path="/planets" exact component={PlanetPage} />
+                                        <Route path="/starships" exact component={StarshipPage} />
 
-                                <Route path="/starships/:id" render={
-                                    ({ match }) => {
-                                        const { id } = match.params;
-                                        return <StarshipDetails itemId={ id }/>
-                                    }
-                                } />
-                                <Route path="/planets/:id" render={
-                                    ({ match }) => {
-                                        const { id } = match.params;
-                                        return <PlanetDetails itemId={ id }/>
-                                    }
-                                } />
-                                <Route path="/people/:id" render={
-                                    ({ match }) => {
-                                        const { id } = match.params;
-                                        return <PersonDetails itemId={ id }/>
-                                    }
-                                } />
-
+                                        <Route path="/starships/:id" render={
+                                            ({ match }) => {
+                                                const { id } = match.params;
+                                                return <StarshipDetails itemId={ id }/>
+                                            }
+                                        } />
+                                        <Route path="/planets/:id" render={
+                                            ({ match }) => {
+                                                const { id } = match.params;
+                                                return <PlanetDetails itemId={ id }/>
+                                            }
+                                        } />
+                                        <Route path="/people/:id" render={
+                                            ({ match }) => {
+                                                const { id } = match.params;
+                                                return <PersonDetails itemId={ id }/>
+                                            }
+                                        } />
+                                        <Route render={() => {
+                                            return(
+                                                <div className="page-not-found">
+                                                    <h2>Page not found</h2>
+                                                    <Link to="/">Home</Link>
+                                                </div>
+                                            )
+                                        }} />
+                                </Switch>
                             </div>
                         </div>
                     </div>
