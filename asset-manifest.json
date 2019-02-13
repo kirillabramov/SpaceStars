@@ -1,7 +1,7 @@
 {
   "main.css": "/space-stars/static/css/main.6f5c45e4.chunk.css",
-  "main.js": "/space-stars/static/js/main.c44bce22.chunk.js",
-  "main.js.map": "/space-stars/static/js/main.c44bce22.chunk.js.map",
+  "main.js": "/space-stars/static/js/main.3294250d.chunk.js",
+  "main.js.map": "/space-stars/static/js/main.3294250d.chunk.js.map",
   "static/js/1.07cb89c1.chunk.js": "/space-stars/static/js/1.07cb89c1.chunk.js",
   "static/js/1.07cb89c1.chunk.js.map": "/space-stars/static/js/1.07cb89c1.chunk.js.map",
   "runtime~main.js": "/space-stars/static/js/runtime~main.f37032b0.js",
@@ -9,6 +9,6 @@
   "static/media/app.scss": "/space-stars/static/media/bg.dadb650c.jpg",
   "static/css/main.6f5c45e4.chunk.css.map": "/space-stars/static/css/main.6f5c45e4.chunk.css.map",
   "index.html": "/space-stars/index.html",
-  "precache-manifest.4f09d8a9d704c22e70aaa2758c6155ba.js": "/space-stars/precache-manifest.4f09d8a9d704c22e70aaa2758c6155ba.js",
+  "precache-manifest.8ab222e3d005c2a1f36e7ff283c4390a.js": "/space-stars/precache-manifest.8ab222e3d005c2a1f36e7ff283c4390a.js",
   "service-worker.js": "/space-stars/service-worker.js"
 }

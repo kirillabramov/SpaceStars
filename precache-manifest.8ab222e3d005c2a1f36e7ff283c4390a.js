@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/space-stars/static/js/runtime~main.f37032b0.js"
   },
   {
-    "revision": "c44bce22129ab98195c0",
-    "url": "/space-stars/static/js/main.c44bce22.chunk.js"
+    "revision": "3294250df806f75916f4",
+    "url": "/space-stars/static/js/main.3294250d.chunk.js"
   },
   {
     "revision": "07cb89c18c999d1356c6",
     "url": "/space-stars/static/js/1.07cb89c1.chunk.js"
   },
   {
-    "revision": "c44bce22129ab98195c0",
+    "revision": "3294250df806f75916f4",
     "url": "/space-stars/static/css/main.6f5c45e4.chunk.css"
   },
   {
-    "revision": "c1bf7bd3c36274389a28bfcc014b566d",
+    "revision": "cce9fc91a0ab4ec054e9b9c8c80e2016",
     "url": "/space-stars/index.html"
   }
 ];
