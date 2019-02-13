@@ -24,21 +24,21 @@ export default class App extends Component{
                     <div className="app__wrapper">
                         <div className="app__inner">
                             <div className="app__header">
-                                <Link to="/" className="app__logo" data-hover="SpaceStars">SpaceStars</Link>
+                                <Link to="/space-stars/" className="app__logo" data-hover="SpaceStars">SpaceStars</Link>
                                 <Header />
                             </div>
                             <RandomPlanet />
                             <div className="app__details">
                                 <Switch>
                                         <Route 
-                                        path="/" 
+                                        path="/space-stars/" 
                                         render={
                                             () => <h2 className="app--welcome">Welcome to SpaceStars</h2>
                                         } 
                                         exact
                                         />
 
-                                        <Route path="/people/" exact component={PeoplePage} />
+                                        <Route path="/people" exact component={PeoplePage} />
                                         <Route path="/planets" exact component={PlanetPage} />
                                         <Route path="/starships" exact component={StarshipPage} />
 
@@ -64,7 +64,7 @@ export default class App extends Component{
                                             return(
                                                 <div className="page-not-found">
                                                     <h2>Page not found</h2>
-                                                    <Link to="/">Home</Link>
+                                                    <Link to="/space-stars/">Home</Link>
                                                 </div>
                                             )
                                         }} />
