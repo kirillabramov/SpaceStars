@@ -69,8 +69,24 @@ ul{
 }
 
 .page-not-found{
+    text-align: center;
     h2{
         color: #fff;
-        text-align: center;
+    }
+    a{
+        display: inline-block;
+        margin-top: 15px;
+        border: 1px solid;
+        border-radius: 3px;
+        padding: 5px;
+        transition: 0.25s ease;
+        &:hover{
+            transform: scale(0.95);
+            transition: .25s ease;
+        }
+        &:active{
+            transform: scale(0.9);
+            transition: 0.25s ease;
+        }
     }
 }
